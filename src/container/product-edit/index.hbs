@@ -1,0 +1,74 @@
+{{! 
+Це код container файлу для index сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+ }}
+{{#with product}}
+  <div class='form'>
+    <h1 class='form__title'>Редагування товару</h1>
+    <form method='post' action='/product-edit'>
+      <div class='form__content'>
+        <h2 class='content__title'>
+          Інформація про товар
+        </h2>
+
+        <div class='form__field'>
+          <label for='name' class='form__label'>Назва товару</label>
+          <input
+            type='Text'
+            name='name'
+            class='form__input'
+            value='{{name}}'
+          />
+        </div>
+        <div class='form__field'>
+          <label
+            for='price'
+            class='form__label'
+          >Ціна</label>
+          <input
+            type='number'
+            name='price'
+            class='form__input'
+            value='{{price}}'
+          />
+        </div>
+
+        <div class='form__field'>
+          <label for='id' class='form__label'>ID</label>
+          <input
+            type='number'
+            name='id'
+            class='form__input'
+            value='{{id}}'
+          />
+        </div>
+        <div class='form__field form__field--large'>
+          <label for='password' class='form__label'>Короткий
+            опис товару</label>
+          <input
+            type='text'
+            name='description'
+            value='{{description}}'
+            class='form__input'
+          />
+        </div>
+        <div class='form__buttons'>
+          <button
+            type='submit'
+            class='form__button button--primary'
+          >Зберегти оновлення</button>
+          <a
+            class='form__button button--danger'
+            href='/product-delete?id={{id}}'
+          >Видалити товар</a>
+        </div>
+
+      </div>
+    </form>
+  </div>
+{{/with}}
+
+{{! 
+    Цей код містить лише те, що буде виводитись в <body>
+    Адже наш layout/default.hbs має вже структуру HTML
+}}

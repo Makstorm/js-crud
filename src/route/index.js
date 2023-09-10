@@ -60,6 +60,60 @@ class User {
   }
 }
 
+class Product {
+  static #list = []
+
+  constructor(name, price, description) {
+    this.name = name
+    this.price = price
+    this.description = description
+    this.id = Math.floor(Math.random() * 100000)
+    this.createdDate = new Date().toISOString()
+  }
+
+  static getList() {
+    return this.#list
+  }
+
+  static add(product) {
+    this.#list.push(product)
+  }
+
+  static getById(id) {
+    return this.#list.find((product) => product.id === id)
+  }
+
+  static deleteById(id) {
+    const index = this.#list.findIndex(
+      (product) => product.id === id,
+    )
+
+    if (index !== -1) {
+      this.#list.splice(index, 1)
+    }
+  }
+
+  static updateById(id, data) {
+    const { name, price, description } = data
+
+    const product = this.getById(id)
+
+    if (product) {
+      if (name) {
+        product.name = name
+      }
+
+      if (description) {
+        product.description = description
+      }
+
+      if (price) {
+        product.price = price
+      }
+    }
+  }
+}
+
 // router.get Створює нам один ентпоїнт
 
 // ↙️ тут вводимо шлях (PATH) до сторінки
@@ -135,6 +189,71 @@ router.post('/user-update', function (req, res) {
         style: 'success-info',
         info: 'Невірний пароль',
       })
+})
+
+router.get('/product-create', (req, res) => {
+  res.render('product-create', {
+    style: 'product-create',
+  })
+})
+
+router.post('/product-create', (req, res) => {
+  const { name, price, description } = req.body
+
+  const product = new Product(name, price, description)
+
+  Product.add(product)
+
+  console.log(Product.getList())
+
+  res.render('alert', {
+    style: 'alert',
+    info: 'Продукт доданий',
+  })
+})
+
+router.get('/product-list', (req, res) => {
+  res.render('product-list', {
+    style: 'product-list',
+    products: Product.getList(),
+  })
+})
+
+router.get('/product-edit', (req, res) => {
+  const { id } = req.query
+
+  const product = Product.getById(Number(id))
+
+  res.render('product-edit', {
+    style: 'product-edit',
+    product,
+  })
+})
+
+router.post('/product-edit', (req, res) => {
+  const { id, ...data } = req.body
+
+  console.log(data)
+
+  Product.updateById(Number(id), data)
+
+  console.log(Product.getList())
+
+  res.render('alert', {
+    style: 'alert',
+    info: 'Товар змінений',
+  })
+})
+
+router.get('/product-delete', (req, res) => {
+  const { id } = req.query
+
+  Product.deleteById(Number(id))
+
+  res.render('alert', {
+    style: 'alert',
+    info: 'Товар видалений',
+  })
 })
 
 // ================================================================

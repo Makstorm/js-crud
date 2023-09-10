@@ -1,0 +1,16 @@
+{{#with product}}
+  <div class='product-card'>
+    <h2 class='product-card__title'>{{name}}</h2>
+    <p class='product-card__description'>{{description}}
+    </p>
+
+    <p class='product-card__id'>ID: {{id}}</p>
+
+    <p class='product-card__price'>{{price}}</p>
+
+    <a
+      href='/product-edit?id={{id}}'
+      class='product-card__update'
+    >Редагувати</a>
+  </div>
+{{/with}}
