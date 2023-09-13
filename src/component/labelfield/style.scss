@@ -1,0 +1,16 @@
+@use '../../lib/service.scss' as s;
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: s.space(1);
+  width: 100%;
+}
+
+.label__title {
+  font-size: 20px;
+}
+
+.label__text {
+  font-size: 18px;
+}

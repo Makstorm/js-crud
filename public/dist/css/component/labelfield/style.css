@@ -1,0 +1,16 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.label__title {
+  font-size: 20px;
+}
+
+.label__text {
+  font-size: 18px;
+}
+
+/*# sourceMappingURL=style.css.map */
