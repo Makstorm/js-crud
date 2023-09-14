@@ -1,0 +1,21 @@
+{{! 
+Це код container файлу для index сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+ }}
+<main class='main'>
+  {{#each data}}
+    <div class="row">
+        {{> labelfield label='ID' text=id}}
+        {{> labelfield  label='Товар' text=product.title}}
+        {{> labelfield  label='Cума' text=product.title}}
+        {{> labelfield  label='Cума нарахованих бонусів' text=bonus}}
+        <a href="/purchase-info?id={{id}}" class="info">Информация</a>
+        
+    </div>
+    {{> divider}}
+  {{/each}}
+</main>
+{{! 
+    Цей код містить лише те, що буде виводитись в <body>
+    Адже наш layout/default.hbs має вже структуру HTML
+}}

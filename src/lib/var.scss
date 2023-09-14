@@ -5,6 +5,7 @@ $colorMap: (
   'danger': #ff0000,
   'white': #ffffff,
   'black': #000000,
+  border: #000000,
 );
 
 @function color($key) {

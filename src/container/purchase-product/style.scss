@@ -1,0 +1,75 @@
+@use '../../lib/service.scss' as s;
+
+@use '../../component/heading/style.scss';
+@use '../../component/purchase-product/style.scss' as
+  product;
+@use '../../component/divider/style.scss' as divider;
+@use '../../component/field/style.scss' as field;
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: s.space(10);
+  padding: s.space(10);
+}
+
+.product-list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: s.space(5);
+  justify-items: center;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: s.space(4);
+  align-items: flex-start;
+
+  &__image {
+    max-height: 300px;
+    width: 100%;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    color: s.color('grey');
+  }
+
+  &__category {
+    padding: 5px 10px;
+    border-radius: 30px;
+    font-size: 14px;
+    color: s.color('black');
+  }
+
+  &__category--1 {
+    border-color: blue;
+    color: blue;
+  }
+  &__category--2 {
+    border-color: green;
+    color: green;
+  }
+
+  &__button {
+    background-color: s.color('blue');
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
