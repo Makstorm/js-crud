@@ -1,0 +1,47 @@
+@use '../../lib/service.scss' as s;
+
+.card {
+  display: flex;
+  padding: s.space(4);
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
+
+  &__header {
+    display: grid;
+    gap: s.space(4);
+  }
+
+  &__button {
+    text-decoration: none;
+    padding: s.space(2) s.space(15);
+    border: 1px solid #0d6efd;
+    border-radius: s.space(1);
+  }
+
+  &__button--blue {
+    color: s.color('white');
+    border-radius: 4px;
+    border: 1px solid #0d6efd;
+    background: #0d6efd;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  &__subtitle {
+    overflow: hidden;
+    color: s.color('grey');
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 23px;
+  }
+}

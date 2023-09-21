@@ -1,0 +1,36 @@
+@use '../../lib/service.scss' as s;
+
+@use '../../component/heading/style.scss';
+@use '../../component/purchase-product/style.scss' as
+  product;
+
+@use '../../lib/spotify.scss' as spotify;
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+  }
+}
+
+.hover {
+  &__button {
+    color: s.color('light');
+
+    transition: opacity 0.6s;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
+.playlist_link {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
